@@ -1,0 +1,116 @@
+                  
+           
+                <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Momos Delight - With Chatbot</title>
+                <style>
+        /* Existing styles from previous template */
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; color: #333; }
+        header { background-color: #ff6b6b; color: white; text-align: center; padding: 50px 20px; }
+        section { max-width: 800px; margin: 20px auto; padding: 20px; background: white; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        h2 { color: #ff6b6b; }
+        ul { list-style-type: disc; margin-left: 20px; }
+        footer { text-align: center; padding: 20px; background-color: #333; color: white; }
+        
+        /* Chatbot styles */
+        #chatbot { position: fixed; bottom: 20px; right: 20px; width: 300px; height: 400px; background: white; border: 1px solid #ccc; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.2); display: none; }
+        #chatbot.show { display: block; }
+        #chat-messages { height: 300px; overflow-y: auto; padding: 10px; }
+        #chat-input { width: 100%; padding: 10px; box-sizing: border-box; }
+        button { background: #ff6b6b; color: white; border: none; padding: 10px; cursor: pointer; }
+        #chat-toggle { position: fixed; bottom: 20px; right: 20px; background: #ff6b6b; color: white; border: none; padding: 10px; border-radius: 50%; cursor: pointer; }
+                 </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Momos Delight</h1>
+        <p>Discover the flavors of authentic momos – steamed dumplings bursting with taste!</p>
+    </header>
+    
+    <!-- Existing sections from previous template -->
+    <section id="about">
+        <h2>About Momos</h2>
+        <p>Momos are a beloved street food originating from Tibet, Nepal, and India. These juicy dumplings are filled with spiced meat or veggies, wrapped in dough, and steamed to perfection. Perfect as an appetizer or snack!</p>
+    </section>
+                 <section id="recipe">
+        <h2>Simple Chicken Momos Recipe</h2>
+        <h3>Ingredients (for 20-25 pieces):</h3>
+        <ul>
+            <li>500g ground chicken</li>
+            <li>1 cup finely chopped onions</li>
+            <li>2 tbsp ginger-garlic paste</li>
+            <li>1 tsp cumin powder, 1 tsp coriander powder</li>
+            <li>Salt, pepper, and green chilies to taste</li>
+            <li>20-25 momo wrappers (or make dough with flour and water)</li>
+        </ul>
+                 <h3>Instructions:</h3>
+        <ol>
+            <li>Mix all ingredients except wrappers to make the filling.</li>
+            <li>Place a spoonful in each wrapper, fold into pleats, and seal.</li>
+            <li>Steam for 15-20 minutes in a steamer basket.</li>
+            <li>Serve hot with spicy chutney!</li>
+        </ol>
+        <p><em>Tip:</em> For veg momos, substitute chicken with cabbage, carrots, and paneer.</p>
+    </section>
+                 <section id="varieties">
+        <h2>Popular Varieties</h2>
+        <ul>
+            <li><strong>Chicken Momos:</strong> Classic with minced chicken and spices.</li>
+            <li><strong>Veg Momos:</strong> Filled with mixed vegetables for a lighter option.</li>
+            <li><strong>Buff Momos:</strong> Made with buffalo meat, popular in Nepal.</li>
+            <li><strong>Fried Momos:</strong> Crispy version for a crunchy twist.</li></ul>
+    </section>
+    
+    <footer>
+        <p>&copy; 2023 Momos Delight. All rights reserved. | Contact: info@momosdelight.com</p>
+    </footer>
+    
+           <!-- Chatbot Elements -->
+    <button id="chat-toggle">Chat</button>
+    <div id="chatbot">
+        <div id="chat-messages">
+            <p><strong>Bot:</strong> Hi! I'm the Momos Bot. Ask me about recipes, orders, or fun facts!</p>
+        </div>
+        <input type="text" id="chat-input" placeholder="Type your message...">
+        <button id="send-btn">Send</button>
+    </div>
+    
+    <script>
+        const chatToggle = document.getElementById('chat-toggle');
+        const chatbot = document.getElementById('chatbot');
+        const chatMessages = document.getElementById('chat-messages');
+        const chatInput = document.getElementById('chat-input');
+        const sendBtn = document.getElementById('send-btn');
+        
+        // Toggle chatbot visibility
+
+            // Add message to chat
+        function addMessage(message) {
+            const msgDiv = document.createElement('p');
+            msgDiv.innerHTML = message;
+            chatMessages.appendChild(msgDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+        
+        // Simple rule-based responses
+        function getBotResponse(message) {
+            if (message.includes('recipe')) {
+                return 'Check out our Chicken Momos Recipe section! Ingredients include ground chicken, onions, and spices. Steam for 15-20 mins.';
+            } else if (message.includes('order')) {
+                return 'To order, contact us at info@momosdelight.com or visit our location. We have chicken, veg, and buff momos!';
+            } else if (message.includes('varieties') || message.includes('types')) {
+                return 'Popular varieties: Chicken, Veg, Buff, and Fried Momos. Each with unique flavors!';
+            } else if (message.includes('hello') || message.includes('hi')) {
+                return 'Hello! How can I help with momos today?';
+            } else if (message.includes('bye')) {
+                return 'Goodbye! Enjoy your momos!';
+            } else {
+                return 'Sorry, I\'m focused on momos. Ask about recipes, orders, or varieties!';
+            }
+        }
+        
+    </script>
+</body>
+</html>
